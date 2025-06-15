@@ -3,225 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>職人マーケット - 日本の伝統工芸と現代アートのオンラインマーケットプレイス</title>
+    <title>職人マーケット - 日本の伝統工芸と現代アート</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ヘッダー -->
+    <!-- ヘッダー：ナビゲーション・検索・カート -->
     <header class="header">
         <div class="container">
             <div class="header__content">
-                <div class="header__logo">
-                    <h1 class="logo">職人マーケット</h1>
-                </div>
+                <!-- ロゴ -->
+                <h1 class="logo">職人の匠</h1>
                 
-                <nav class="header__nav" role="navigation">
+                <!-- メインナビゲーション -->
+                <nav class="header__nav">
                     <ul class="nav-list">
-                        <li><a href="#home" class="nav-link active">ホーム</a></li>
-                        <li><a href="#products" class="nav-link">商品</a></li>
-                        <li><a href="#artists" class="nav-link">職人</a></li>
-                        <li><a href="#about" class="nav-link">私たちについて</a></li>
+                        <li><a href="#categories" class="nav-link">カテゴリー</a></li>
+                        <li><a href="#featured-products" class="nav-link">おすすめ</a></li>
+                        <li><a href="#all-products" class="nav-link">商品一覧</a></li>
+                        <li><a href="#artists" class="nav-link">職人紹介</a></li>
                     </ul>
                 </nav>
-
+                
+                <!-- 検索・カート -->
                 <div class="header__actions">
                     <div class="search-container">
-                        <input type="search" placeholder="商品を検索..." class="search-input" id="search-input">
-                        <button class="search-btn" aria-label="検索">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="21 21l-4.35-4.35"></path>
-                            </svg>
-                        </button>
+                        <input type="text" id="search-input" class="search-input" placeholder="商品を検索...">
+                        <button class="search-btn">🔍</button>
                     </div>
-                    
-                    <button class="cart-btn" id="cart-btn" aria-label="ショッピングカート">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z"></path>
-                            <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z"></path>
-                            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"></path>
-                        </svg>
+                    <button class="cart-btn" id="cart-btn">
+                        🛒
                         <span class="cart-count" id="cart-count">0</span>
-                    </button>
-                    
-                    <button class="user-btn" aria-label="ユーザーアカウント">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
                     </button>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- メインコンテンツ -->
     <main>
-        <!-- ヒーローセクション -->
-        <section class="hero" id="home">
-            <div class="hero__content">
-                <div class="container">
-                    <div class="hero__text">
-                        <h2 class="hero__title">日本の伝統工芸と現代アートの世界</h2>
-                        <p class="hero__description">職人の手によって生み出される唯一無二の作品と出会い、日本の美の世界をお楽しみください</p>
-                        <button class="btn btn--primary btn--lg hero__cta" onclick="scrollToProducts()">商品を見る</button>
-                    </div>
+        <!-- ヒーローセクション：メインビジュアル -->
+        <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('artisan_workshop.jpg'); background-size: cover; background-position: center;">
+            <div class="container">
+                <div class="hero__content">
+                    <h2 class="hero__title">日本の伝統工芸と現代アートの世界</h2>
+                    <p class="hero__description">職人の手によって生み出される唯一無二の作品と出会い、日本の美の世界をお楽しみください</p>
+                    <a href="#categories" class="btn btn--primary btn--lg hero__cta">商品を見る</a>
                 </div>
             </div>
         </section>
 
-        <!-- カテゴリーセクション -->
+        <!-- カテゴリーセクション：6つの工芸分野 -->
         <section class="categories" id="categories">
             <div class="container">
                 <h2 class="section-title">カテゴリー別に探す</h2>
                 <div class="categories__grid" id="categories-grid">
-                    <!-- カテゴリーはJavaScriptで表示されます -->
+                    <!-- JavaScriptで動的に生成 -->
                 </div>
             </div>
         </section>
 
-        <!-- おすすめ商品セクション -->
-        <section class="featured-products" id="products">
+        <!-- おすすめ商品セクション：厳選された4商品 -->
+        <section class="featured-products" id="featured-products">
             <div class="container">
                 <h2 class="section-title">おすすめ商品</h2>
                 <div class="products__grid" id="featured-products-grid">
-                    <!-- 商品はJavaScriptで表示されます -->
+                    <!-- JavaScriptで動的に生成 -->
                 </div>
             </div>
         </section>
 
-        <!-- 職人セクション -->
+        <!-- 職人紹介セクション：3名の作家プロフィール -->
         <section class="artists" id="artists">
             <div class="container">
                 <h2 class="section-title">職人紹介</h2>
                 <div class="artists__grid" id="artists-grid">
-                    <!-- 職人はJavaScriptで表示されます -->
+                    <!-- JavaScriptで動的に生成 -->
                 </div>
             </div>
         </section>
 
-        <!-- 全商品セクション -->
+        <!-- 全商品セクション：フィルター付き商品一覧 -->
         <section class="all-products" id="all-products">
             <div class="container">
                 <div class="products-header">
                     <h2 class="section-title">全商品</h2>
+                    
+                    <!-- フィルター・ソート機能 -->
                     <div class="products-controls">
-                        <div class="filters">
-                            <select class="form-control filter-select" id="category-filter">
-                                <option value="">すべてのカテゴリー</option>
-                            </select>
-                            <select class="form-control filter-select" id="price-filter">
-                                <option value="">すべての価格</option>
-                                <option value="0-5000">5,000円以下</option>
-                                <option value="5000-15000">5,000円 - 15,000円</option>
-                                <option value="15000-30000">15,000円 - 30,000円</option>
-                                <option value="30000+">30,000円以上</option>
-                            </select>
-                            <select class="form-control filter-select" id="sort-filter">
-                                <option value="featured">おすすめ順</option>
-                                <option value="price-low">価格の安い順</option>
-                                <option value="price-high">価格の高い順</option>
-                                <option value="rating">評価の高い順</option>
-                            </select>
-                        </div>
+                        <select id="category-filter" class="form-control filter-select">
+                            <option value="">すべてのカテゴリー</option>
+                        </select>
+                        
+                        <select id="price-filter" class="form-control filter-select">
+                            <option value="">すべての価格</option>
+                            <option value="under-5000">5,000円以下</option>
+                            <option value="5000-15000">5,000円 - 15,000円</option>
+                            <option value="15000-30000">15,000円 - 30,000円</option>
+                            <option value="over-30000">30,000円以上</option>
+                        </select>
+                        
+                        <select id="sort-filter" class="form-control filter-select">
+                            <option value="">おすすめ順</option>
+                            <option value="price-low">価格の安い順</option>
+                            <option value="price-high">価格の高い順</option>
+                            <option value="rating">評価の高い順</option>
+                        </select>
                     </div>
                 </div>
+                
                 <div class="products__grid" id="all-products-grid">
-                    <!-- 全商品はJavaScriptで表示されます -->
+                    <!-- JavaScriptで動的に生成 -->
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 商品詳細モーダル -->
-    <div class="modal" id="product-modal">
-        <div class="modal__overlay" onclick="closeProductModal()"></div>
-        <div class="modal__content">
-            <button class="modal__close" onclick="closeProductModal()" aria-label="モーダルを閉じる">×</button>
-            <div class="product-detail" id="product-detail">
-                <!-- 商品詳細はJavaScriptで表示されます -->
-            </div>
-        </div>
-    </div>
-
-    <!-- カートモーダル -->
-    <div class="modal" id="cart-modal">
-        <div class="modal__overlay" onclick="closeCartModal()"></div>
-        <div class="modal__content">
-            <button class="modal__close" onclick="closeCartModal()" aria-label="モーダルを閉じる">×</button>
-            <div class="cart-content">
-                <h3 class="cart-title">ショッピングカート</h3>
-                <div class="cart-items" id="cart-items">
-                    <!-- カート内容はJavaScriptで表示されます -->
-                </div>
-                <div class="cart-footer">
-                    <div class="cart-total">
-                        <strong>合計: ¥<span id="cart-total">0</span></strong>
-                    </div>
-                    <button class="btn btn--primary btn--full-width" id="checkout-btn">お会計に進む</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- フッター -->
+    <!-- フッター：サイト情報・リンク -->
     <footer class="footer">
         <div class="container">
             <div class="footer__content">
-                <div class="footer__section">
-                    <h4 class="footer__title">職人マーケット</h4>
-                    <p class="footer__description">日本の伝統工芸と現代アートを世界に向けて発信するオンラインマーケットプレイスです。</p>
+                <div>
+                    <h3 class="footer__title">職人の匠について</h3>
+                    <p class="footer__description">
+                        日本の伝統工芸品と現代アート作品を紹介・販売するオンラインマーケットプレイスです。
+                        職人の技術と美意識を世界に発信することを目的としています。
+                    </p>
                 </div>
-                <div class="footer__section">
-                    <h4 class="footer__title">クイックリンク</h4>
+                
+                <div>
+                    <h3 class="footer__title">サイトリンク</h3>
                     <ul class="footer__links">
-                        <li><a href="#home">ホーム</a></li>
-                        <li><a href="#products">商品</a></li>
-                        <li><a href="#artists">職人</a></li>
-                        <li><a href="#about">私たちについて</a></li>
+                        <li><a href="#categories">カテゴリー</a></li>
+                        <li><a href="#featured-products">おすすめ商品</a></li>
+                        <li><a href="#artists">職人紹介</a></li>
+                        <li><a href="#all-products">全商品</a></li>
                     </ul>
                 </div>
-                <div class="footer__section">
-                    <h4 class="footer__title">カスタマーサービス</h4>
+                
+                <div>
+                    <h3 class="footer__title">お客様サポート</h3>
                     <ul class="footer__links">
-                        <li><a href="#contact">お問い合わせ</a></li>
-                        <li><a href="#shipping">配送について</a></li>
-                        <li><a href="#returns">返品・交換</a></li>
-                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                        <li><a href="#">配送について</a></li>
+                        <li><a href="#">返品・交換</a></li>
+                        <li><a href="#">よくある質問</a></li>
                     </ul>
                 </div>
-                <div class="footer__section">
-                    <h4 class="footer__title">メールマガジン</h4>
-                    <p>新着商品や職人の特集情報をお届けします</p>
+                
+                <div>
+                    <h3 class="footer__title">メルマガ登録</h3>
+                    <p class="footer__description">新商品や職人の最新情報をお届けします</p>
                     <div class="newsletter">
-                        <input type="email" placeholder="メールアドレスを入力" class="form-control newsletter-input">
-                        <button class="btn btn--primary newsletter-btn">登録</button>
+                        <input type="email" class="newsletter-input form-control" placeholder="メールアドレス">
+                        <button class="newsletter-btn btn btn--primary">登録</button>
                     </div>
                 </div>
             </div>
+            
+            <!-- フッター下部：著作権・SNS -->
             <div class="footer__bottom">
-                <p>&copy; 2025 職人マーケット. All rights reserved.</p>
+                <p>&copy; 2024 職人の匠. All rights reserved.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Instagram" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Pinterest" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.085.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.161-1.499-.698-2.436-2.888-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.357-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
-                        </svg>
-                    </a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- モーダル：商品詳細表示用 -->
+    <div class="modal" id="product-modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <!-- JavaScriptで動的に生成 -->
+        </div>
+    </div>
+
+    <!-- モーダル：ショッピングカート用 -->
+    <div class="modal" id="cart-modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <h2>ショッピングカート</h2>
+            <div id="cart-items">
+                <!-- JavaScriptで動的に生成 -->
+            </div>
+            <div class="cart-footer">
+                <p class="cart-total">合計: ¥<span id="cart-total">0</span></p>
+                <button class="btn btn--primary btn--full-width" id="checkout-btn">お会計に進む</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript読み込み -->
     <script src="app.js"></script>
 </body>
 </html>
